@@ -1,0 +1,16 @@
+markdown: redcarpet
+highlighter: null
+permalink: /:title
+
+highlighter: rouge
+encoding: utf-8
+
+url: http://assist.hilbri.ch
+baseurl:
+
+redcarpet:
+  extensions: [strikethrough, tables]
+
+sass:
+  sass_dir: public/css
+  style: :compressed

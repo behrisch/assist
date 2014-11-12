@@ -1,0 +1,14 @@
+- url: /
+  title: Home
+
+- url: /about
+  title: About
+
+- url: /download
+  title: Download
+
+- url: /license
+  title: License
+
+- url: /imprint
+  title: Imprint
