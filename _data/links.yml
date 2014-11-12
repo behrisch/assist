@@ -7,6 +7,9 @@
 - url: /download
   title: Download
 
+- url: /doc
+  title: Doc
+
 - url: /license
   title: License
 
