@@ -4,7 +4,7 @@
     <!-- meta information -->
 <meta charset="utf-8">
 <meta name="description" 
-      content="Nothing yet :(" >
+      content="### Overview1. [Intended Workflow](#intended_workflow)2. [MDSL Example File](#example_file)3. [General Structure](#ge..." >
 <meta name="author" content="Robert Hilbrich">
 
 <!-- Enable responsiveness on mobile devices-->
@@ -62,7 +62,136 @@
       <article class="single row gutters">
   <h2>Documentation</h2>
 
-  <p>Nothing yet :(</p>
+  <h3>Overview</h3>
+
+<ol>
+<li><a href="#intended_workflow">Intended Workflow</a></li>
+<li><a href="#example_file">MDSL Example File</a></li>
+<li><a href="#general_structure">General Structure</a></li>
+<li><a href="#global_block">Global Block</a></li>
+<li><a href="#hardware_block">Hardware Block</a></li>
+</ol>
+
+<h3><a id="intended_workflow"></a>1. Intended Workflow</h3>
+
+<p>ASSIST is best suited for the following workflow:</p>
+
+<ol>
+<li>Specify your hardware and software architecture in an <strong>mdsl</strong> file</li>
+<li>Specify your resource and safety requirements in an <strong>mdsl</strong> file</li>
+<li>Generate a set of spatial deployments (<em>mappings</em>)</li>
+<li>Sort these deployments according to customized metrics</li>
+<li>Select an optimal deployment</li>
+</ol>
+
+<p>The following sections describe possible specifications for an <strong>mdsl</strong> file.</p>
+
+<h3><a id="example_file"></a>2. MDSL Example File</h3>
+
+<div class="highlight"><pre><code class="language-conf" data-lang="conf"><span class="n">Global</span> { 
+    <span class="n">System</span> <span class="n">name</span> = <span class="s2">"Example System"</span>;
+}
+
+<span class="n">Hardware</span> {
+    <span class="n">Compartment</span> <span class="n">C1</span> { 
+        <span class="n">Side</span> = <span class="s2">"Left"</span>;
+        <span class="n">Zone</span> = <span class="s2">"Front"</span>;
+        
+        <span class="n">Box</span> <span class="n">Box1</span>{
+            <span class="n">Manufacturer</span> = <span class="s2">"ACME"</span>;
+
+            <span class="n">Board</span> <span class="n">B1</span> {
+                <span class="n">Design</span> <span class="n">assurance</span> <span class="n">level</span> = <span class="n">A</span>;
+                <span class="n">Processor</span> <span class="n">P1</span> {
+                    <span class="n">Core</span> <span class="n">C1</span> {
+                        <span class="n">Capacity</span> = <span class="m">100</span>;
+                        <span class="n">Architecture</span> = <span class="s2">"x86"</span>;
+                    }
+                }
+        
+                <span class="n">I</span>/<span class="n">O</span> <span class="n">adapter</span> {
+                    <span class="n">type</span> = <span class="n">Custom</span>-<span class="n">Type</span>-<span class="m">1</span>;
+                    <span class="n">count</span> = <span class="m">3</span>;
+                    <span class="n">protection</span>-<span class="n">level</span> = <span class="n">L3</span>; 
+                }
+            }
+    
+            <span class="n">Board</span> <span class="n">B2</span> {
+                <span class="n">Processor</span> <span class="n">P1</span> {
+                    <span class="n">Core</span> <span class="n">C1</span> {
+                        <span class="n">Capacity</span> = <span class="m">100</span>;
+                    }
+                }
+
+                <span class="n">I</span>/<span class="n">O</span> <span class="n">adapter</span> {
+                    <span class="n">type</span> = <span class="n">Custom</span>-<span class="n">Type</span>-<span class="m">1</span>;
+                    <span class="n">count</span> = <span class="m">3</span>;
+                    <span class="n">protection</span>-<span class="n">level</span> = <span class="n">L1</span>; 
+                }
+            }
+        }
+    }
+}
+
+<span class="n">Software</span> {
+
+    <span class="n">Application</span> <span class="n">A1</span> {
+        <span class="n">Core</span>-<span class="n">utilization</span> = <span class="m">10</span>;
+        <span class="n">Criticality</span> <span class="n">level</span> = <span class="n">A</span>;
+        <span class="n">Required</span> <span class="n">IO</span> <span class="n">protection</span> = <span class="n">L1</span>;
+        <span class="n">Requires</span> <span class="m">5</span> <span class="n">Custom</span>-<span class="n">Type</span>-<span class="m">1</span> <span class="n">adapter</span> <span class="n">exclusive</span>; 
+    }
+    
+    <span class="n">Application</span> <span class="n">A2</span> {
+        <span class="n">Core</span>-<span class="n">utilization</span> = <span class="m">10</span>;
+    }
+}
+
+<span class="n">Relations</span> {
+    <span class="n">A1</span>, <span class="n">A2</span> <span class="n">dislocal</span> <span class="n">up</span> <span class="n">to</span> <span class="n">Board</span>;
+}</code></pre></div>
+
+<h3><a id="general_structure"></a>3. General structure</h3>
+
+<p>An <strong>mdsl</strong> file consists of four basic blocks.</p>
+
+<div class="highlight"><pre><code class="language-conf" data-lang="conf"><span class="n">Global</span> {
+  ... 
+}
+
+<span class="n">Hardware</span> {
+  ... 
+}
+
+<span class="n">Software</span> {
+  ...
+}
+
+<span class="n">Relations</span> {
+  ...
+}</code></pre></div>
+
+<p>Please note:</p>
+
+<ul>
+<li>the order of the blocks matters </li>
+<li>the &quot;Relations&quot; block is optional</li>
+<li>you can use the content assist and automatic code completion features for possible and allowed specifications by hitting <strong>CTRL+Space</strong></li>
+</ul>
+
+<h3><a id="global_block"></a>4. Global Block</h3>
+
+<p>This block is used to specify global parameters and settings. Currently, this can be used to define the name of the system.</p>
+
+<p>Example:</p>
+
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="n">Global</span> <span class="p">{</span>
+    <span class="n">System</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"System A"</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+<h3><a id="hardware_block"></a>5. Hardware Block</h3>
+
+<p>Text</p>
 
 </article>
 
