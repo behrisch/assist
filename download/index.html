@@ -4,7 +4,7 @@
     <!-- meta information -->
 <meta charset="utf-8">
 <meta name="description" 
-      content="### SourcesYou can find the entire sources in my [**[GitHub]**](https://github.com/RobertHilbrich/assist) software re..." >
+      content="### BinariesYou can also download pre-compiled binaries of the current version of ASSIST.  Binaries are currently onl..." >
 <meta name="author" content="Robert Hilbrich">
 
 <!-- Enable responsiveness on mobile devices-->
@@ -62,17 +62,24 @@
       <article class="single row gutters">
   <h2>Download</h2>
 
-  <h3>Sources</h3>
+  <h3>Binaries</h3>
 
-<p>You can find the entire sources in my <a href="https://github.com/RobertHilbrich/assist"><strong>[GitHub]</strong></a> software repository:</p>
+<p>You can also download pre-compiled binaries of the current version of ASSIST.<br>
+Binaries are currently only available for <strong>Windows 64bit</strong>: </p>
+
+<p><a href="https://s3.amazonaws.com/ASSIST/0.2/ASSIST-0.2-Win32.x86_64.zip">ASSIST-0.2-Win32.x86_64.zip</a> (133 MB)</p>
+
+<h3>Sources</h3>
+
+<p>You can find the entire sources in my <a href="https://github.com/RobertHilbrich/assist">[GitHub]</a> software repository:</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">git clone https://github.com/RobertHilbrich/assist.git</code></pre></div>
 
 <p>For <strong>building</strong> ASSIST from the java sources you need:</p>
 
 <ul>
-<li>Java SE Development Kit 7: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html"><strong>[link]</strong></a></li>
-<li>Eclipse Modeling Tools IDE (Luna SR1): <a href="https://www.eclipse.org/downloads/packages/eclipse-modeling-tools/lunasr1"><strong>[link]</strong></a></li>
+<li>Java SE Development Kit 7: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">[link]</a></li>
+<li>Eclipse Modeling Tools IDE (Luna SR1): <a href="https://www.eclipse.org/downloads/packages/eclipse-modeling-tools/lunasr1">[link]</a></li>
 <li>And the following Eclipse packages
 
 <ul>
@@ -80,17 +87,6 @@
 <li>EMF - Eclipse Modeling Framework XCore SDK</li>
 <li>XText Complete SDK</li>
 </ul></li>
-</ul>
-
-<h3>Binaries</h3>
-
-<p>You can also download pre-compiled binaries of the current version of ASSIST.<br>
-<strong>Please note</strong>: Binaries are currently only available for Windows 64bit. </p>
-
-<p>Download current version <strong>20140730</strong>:</p>
-
-<ul>
-<li>Windows 64bit: <a href="https://s3.amazonaws.com/ASSIST/20140730/assist-20140730-win32.win32.x86_64.zip"><strong>[Zip (155 MB)]</strong></a></li>
 </ul>
 
 <h3>Installation instructions</h3>
@@ -108,10 +104,22 @@ Please provide a suiteable name for your deployment specification and click on &
 <img src="/images/install-generate-mappings.jpg" alt="Screenshot"></li>
 </ol>
 
-<h3>Version History</h3>
+<h3>History</h3>
 
 <ul>
-<li>20140730
+<li>Version <strong>0.2</strong> from 11/2014
+
+<ul>
+<li>Added proximity constraints</li>
+<li>Added dislocality constraints</li>
+<li>Added design assurance level constraints</li>
+<li>Added i/o adapter constraints with protection level (exclusive use only)</li>
+<li>Added restricted deployment constraints<br></li>
+<li>Added validation checks for the dsl input</li>
+<li>Input dsl grammar improvements</li>
+<li>Bug fixes</li>
+</ul></li>
+<li>Version <strong>0.1</strong> from 07/2014
 
 <ul>
 <li>Initial public version of ASSIST</li>
