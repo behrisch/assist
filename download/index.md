@@ -15,7 +15,7 @@ Binaries are currently only available for **Windows 64bit**:
 
 You can find the entire sources in my [[GitHub]](https://github.com/RobertHilbrich/assist) software repository:
 
-{% highlight bash %}
+{% highlight conf %}
    git clone https://github.com/RobertHilbrich/assist.git
 {% endhighlight %}
 
