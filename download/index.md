@@ -8,7 +8,7 @@ title: Download
 You can also download pre-compiled binaries of the current version of ASSIST.  
 Binaries are currently only available for **Windows 64bit**: 
 
-[ASSIST-0.2-Win32.x86_64.zip](https://s3.amazonaws.com/ASSIST/0.2/ASSIST-0.2-Win32.x86_64.zip) (133 MB)
+[ASSIST-0.3-Win32.x86_64.zip](https://s3.amazonaws.com/ASSIST/0.3/ASSIST-0.3-Win32.x86_64.zip) (133 MB)
 
 
 ### Sources
@@ -43,6 +43,11 @@ For **building** ASSIST from the java sources you need:
   ![Screenshot](/images/install-generate-mappings.jpg)
 
 ### History
+* Version **0.3** from 01/2015
+    * Moved to CHOCO as a constraint solver
+    * Modified ASSIST project structure
+    * Added network constraints and bandwidth
+    * Prepared custom metrics compilation
 * Version **0.2** from 11/2014
     * Added proximity constraints
     * Added dislocality constraints
